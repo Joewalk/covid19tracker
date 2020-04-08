@@ -20,11 +20,20 @@ const getData = async () => {
 
     let html = "";
 
+    let activeCase = confirmed.value - recovered.value - deaths.value;
+    console.log(activeCase);
     html += `
         <div class="row">
             <div class="card infections">
             Total infections
             <h3 class="inf-count count">${confirmed.value.toLocaleString()}</h3>
+            <span class="updated-at">${new Date(
+              lastUpdate
+            ).toDateString()}</span>
+            </div>
+            <div class="card active">
+            Total Active
+            <h3 class="inf-count count">${activeCase.toLocaleString()}</h3>
             <span class="updated-at">${new Date(
               lastUpdate
             ).toDateString()}</span>
@@ -52,13 +61,14 @@ const getData = async () => {
     var myChart = new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Confirmed", "Recovered", "Deaths"],
+        labels: ["Confirmed", "Active", "Recovered", "Deaths"],
         datasets: [
           {
             label: "Covid-19 Cases",
-            data: [confirmed.value, recovered.value, deaths.value],
+            data: [confirmed.value, activeCase, recovered.value, deaths.value],
             backgroundColor: [
               "rgb(54, 162, 235)",
+              "rgb(167, 59, 186)",
               "rgb(51, 250, 51)",
               "rgb(255,45,32)",
             ],
@@ -97,31 +107,41 @@ const getCountryData = async () => {
 
     let html = "";
 
+    let activeCase = confirmed.value - recovered.value - deaths.value;
+
     html += `
-      <div class="row">
-          <div class="card infections">
+        <div class="row">
+            <div class="card infections">
             Total infections
             <h3 class="inf-count count">${confirmed.value.toLocaleString()}</h3>
             <span class="updated-at">${new Date(
               lastUpdate
             ).toDateString()}</span>
-          </div>
-          <div class="card recoveries">
+            </div>
+            <div class="card active">
+            Total Active
+            <h3 class="inf-count count">${activeCase.toLocaleString()}</h3>
+            <span class="updated-at">${new Date(
+              lastUpdate
+            ).toDateString()}</span>
+            </div>
+            <div class="card recoveries">
             Total recoveries
             <h3 class="rec-count count">${recovered.value.toLocaleString()}</h3>
             <span class="updated-at">${new Date(
               lastUpdate
             ).toDateString()}</span>
-          </div>
-          <div class="card deaths">
+            </div>
+            <div class="card deaths">
             Total deaths
             <h3 class="def-count count">${deaths.value.toLocaleString()}</h3>
             <span class="updated-at">${new Date(
               lastUpdate
             ).toDateString()}</span>
-          </div>
+            </div>
         </div>
-      `;
+        `;
+
     countryName.innerHTML = pickCountry.value;
     countryData.innerHTML = html;
 
@@ -129,13 +149,14 @@ const getCountryData = async () => {
     var myChart = new Chart(ctx1, {
       type: "bar",
       data: {
-        labels: ["Confirmed", "Recovered", "Deaths"],
+        labels: ["Confirmed", "Active", "Recovered", "Deaths"],
         datasets: [
           {
-            label: "# of Votes",
-            data: [confirmed.value, recovered.value, deaths.value],
+            label: "Covid-19 Cases",
+            data: [confirmed.value, activeCase, recovered.value, deaths.value],
             backgroundColor: [
               "rgb(54, 162, 235)",
+              "rgb(167, 59, 186)",
               "rgb(51, 250, 51)",
               "rgb(255,45,32)",
             ],

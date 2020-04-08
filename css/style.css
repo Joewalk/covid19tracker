@@ -31,6 +31,10 @@ body {
   border-bottom: 5px solid #36a2eb;
   /* border-bottom: 5px solid #2222e0; */
 }
+
+.active {
+  border-bottom: 5px solid rgb(167, 59, 186);
+}
 .recoveries {
   border-bottom: 5px solid rgb(51, 250, 51);
 }
@@ -66,6 +70,20 @@ body {
 }
 .countryName {
   margin-top: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  .card {
+    width: 50%;
+  }
+  .card {
+    width: 80%;
+  }
+  .pie {
+    padding: 15px;
+  }
+  .row {
+    flex-direction: column;
+  }
 }
 @media screen and (max-width: 425px) {
   body {
