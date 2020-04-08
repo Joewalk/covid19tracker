@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID-19 TRACKER</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- <div class="row">
+        <div class="card infections">
+          Total infections
+          <h3 class="inf-count count">4544</h3>
+          <span class="updated-at"></span>
+        </div>
+        <div class="card recoveries">
+          Total recoveries
+          <h3 class="rec-count count">4544</h3>
+          <span class="updated-at"></span>
+        </div>
+        <div class="card deaths">
+          Total deaths
+          <h3 class="def-count count">4544</h3>
+          <span class="updated-at"></span>
+        </div>
+      </div> -->
+      <div class="pie">
+        <h1 class="title">COVID-19 TRACKER</h1>
+        <h2>Global</h2>
+        <div class="details"></div>
+        <canvas id="myChart"></canvas>
+
+        <select name="" id="pick-country">
+          <option value="" selected disabled>select country</option>
+        </select>
+        <h2 class="countryName"></h2>
+        <div class="countryData"></div>
+        <canvas id="myChart1"></canvas>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="js/package/dist/Chart.js"></script>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
